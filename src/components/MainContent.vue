@@ -1,8 +1,12 @@
 <template>
     <main>
         <div class="container">
-            <div class="row pt-5">
-                <card-song v-for="element in arrAlbumSong" :key="element.title" :songList = element /> 
+            <div class="row row-cols-lg-5 pt-5">
+                <card-song v-for="element in arrAlbumSong" :key="element.title" 
+                :poster = element.poster
+                :title = element.title
+                :author = element.author
+                :year = element.year /> 
                 
             </div>
         </div>
@@ -17,7 +21,7 @@ export default {
     name: 'MainContent',
     data () {
         return {
-            success: true,
+            // success: true,
             arrAlbumSong: null,
             // [
             //     {
@@ -95,11 +99,11 @@ export default {
     },
 
     created () {
+        setTimeout
         axios.get("https://flynn.boolean.careers/exercises/api/array/music")
-        .then((response) => {
-            console.log(response)
-            this.arrAlbumSong = response.data.result
-        });
+            .then((response) => {
+                this.arrAlbumSong = response.data.response;
+            });
     },
 
     components: {
