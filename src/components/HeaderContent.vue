@@ -1,6 +1,8 @@
 <template>
     <div class="header bg-secondary bg-gradient d-flex justify-content-between align-items-center">
-        <p class="ps-3 text-uppercase">icona</p>
+        <div class="logo ps-3">
+            ICONA
+        </div>
         <div class="select-fix pe-3">
             <select class="form-select" aria-label="Default select example">
                 <option selected>Seleziona Genere</option>
