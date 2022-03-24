@@ -1,7 +1,19 @@
 <template>
     <main>
         <div class="container">
-            <div class="row row-cols-lg-5 pt-5">
+
+            <!-- animazione carimaneto -->
+            <div class="charge" v-if="arrAlbumSong == null">
+                <div id="preloader_1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div v-else class="row row-cols-lg-5 pt-5">
                 <card-song v-for="element in arrAlbumSong" :key="element.title" 
                 :poster = element.poster
                 :title = element.title
@@ -99,11 +111,12 @@ export default {
     },
 
     created () {
-        setTimeout
-        axios.get("https://flynn.boolean.careers/exercises/api/array/music")
-            .then((response) => {
-                this.arrAlbumSong = response.data.response;
-            });
+        setTimeout (() => {
+            axios.get("https://flynn.boolean.careers/exercises/api/array/music")
+                .then((response) => {
+                    this.arrAlbumSong = response.data.response;
+                });
+        }, 3000)
     },
 
     components: {
@@ -116,4 +129,50 @@ export default {
 main{
     background-color: #1e2d3b;
 }
+
+.charge{
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// caricamento animazione
+#preloader_1{
+    position:relative;
+}
+#preloader_1 span{
+    display:block;
+    bottom:0px;
+    width: 9px;
+    height: 5px;
+    background:#9b59b6;
+    position:absolute;
+    animation: preloader_1 1.5s  infinite ease-in-out;
+}
+ 
+#preloader_1 span:nth-child(2){
+left:11px;
+animation-delay: .2s;
+ 
+}
+#preloader_1 span:nth-child(3){
+left:22px;
+animation-delay: .4s;
+}
+#preloader_1 span:nth-child(4){
+left:33px;
+animation-delay: .6s;
+}
+#preloader_1 span:nth-child(5){
+left:44px;
+animation-delay: .8s;
+}
+@keyframes preloader_1 {
+    0% {height:5px;transform:translateY(0px);background:#9b59b6;}
+    25% {height:30px;transform:translateY(15px);background:#3498db;}
+    50% {height:5px;transform:translateY(0px);background:#9b59b6;}
+    100% {height:5px;transform:translateY(0px);background:#9b59b6;}
+}
+
 </style>
