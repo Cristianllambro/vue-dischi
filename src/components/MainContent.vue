@@ -2,7 +2,7 @@
     <main>
         <div class="container">
             <div class="row pt-5">
-                <card-song v-for="element in arrAlbumSong" :key="element.title" :song-list = "element" /> 
+                <card-song v-for="element in arrAlbumSong" :key="element.title" :songList = element /> 
                 
             </div>
         </div>
@@ -18,7 +18,8 @@ export default {
     data () {
         return {
             success: true,
-            // arrAlbumSong: [
+            arrAlbumSong: null,
+            // [
             //     {
             //         poster: "https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg",
             //         title: "New Jersey",
@@ -97,6 +98,7 @@ export default {
         axios.get("https://flynn.boolean.careers/exercises/api/array/music")
         .then((response) => {
             console.log(response)
+            this.arrAlbumSong = response.data.result
         });
     },
 
