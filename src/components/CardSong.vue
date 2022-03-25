@@ -1,5 +1,5 @@
 <template>
-  <div class="card-song col-6 col-md-4 col-lg mb-4 text-center d-flex justify-content-center">
+  <div class="card-song col-6 col-md-4 col-lg mb-5 text-center d-flex justify-content-center">
         <div class=" help pb-5">
             <img class="img-fluid pt-4" :src="poster" :alt="author">
             <h2 class="text-white text-uppercase fs-4 pt-3">{{ title }}</h2>
