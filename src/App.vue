@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header-content />
-    <main-content />
+    <header-content @genSearch="stringSearch" />
+    <main-content :modSearch = strGenerate />
   </div>
 </template>
 
@@ -14,6 +14,16 @@ export default {
   components: {
     HeaderContent,
     MainContent,
+  },
+  data () {
+    return {
+      strGenerate: '',
+    }
+  },
+  methods: {
+    stringSearch(element) {
+      this.strGenerate = element;
+    }
   }
 }
 </script>

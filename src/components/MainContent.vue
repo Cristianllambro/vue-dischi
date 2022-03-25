@@ -13,8 +13,9 @@
                 </div>
             </div>
 
+            <!-- elemento colonna card -->
             <div v-else class="row row-cols-lg-5 pt-5">
-                <card-song v-for="element in arrAlbumSong" :key="element.title" 
+                <card-song v-for="element in searchAlbum" :key="element.title" 
                 :poster = element.poster
                 :title = element.title
                 :author = element.author
@@ -116,11 +117,20 @@ export default {
                 .then((response) => {
                     this.arrAlbumSong = response.data.response;
                 });
-        }, 3000)
+        }, 1000)
+    },
+    computed: {
+        searchAlbum () {
+          return this.arrAlbumSong.filter((ele) => ele.genre.includes(this.modSearch))
+        },
     },
 
     components: {
         CardSong,
+    },
+
+    props: {
+        modSearch: String,
     }
 }
 </script>
