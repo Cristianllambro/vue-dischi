@@ -14,7 +14,7 @@
             </div>
 
             <!-- elemento colonna card -->
-            <div v-else class="row row-cols-lg-5 pt-5">
+            <div v-else class="row row-cols-lg-5 pt-5 pb-4">
                 <card-song v-for="element in searchAlbum" :key="element.title" 
                 :poster = element.poster
                 :title = element.title

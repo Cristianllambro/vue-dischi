@@ -23,6 +23,7 @@ export default {
   methods: {
     stringSearch(element) {
       this.strGenerate = element;
+      console.log(element)
     }
   }
 }
